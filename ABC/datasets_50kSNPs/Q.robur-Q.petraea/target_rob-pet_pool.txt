@@ -1,0 +1,3 @@
+
+dataset	sf_avg	sf_std	sxA_avg	sxA_std	sxB_avg	sxB_std	ss_avg	ss_std	piA_avg	piA_std	piB_avg	piB_std	divAB_avg	divAB_std	netdivAB_avg	netdivAB_std	FST_avg	FST_std	corr_pi
+0	0.000	0.000	0.174	0.379	0.134	0.340	0.692	0.462	0.1524012	0.1400724	0.1605775	0.1442760	0.1697256	0.1456369	0.0132410	0.0569194	0.0031523	0.1406015	0.4664654
