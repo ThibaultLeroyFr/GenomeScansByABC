@@ -6,7 +6,7 @@ For any questions, please contact : thibault.leroy\_AT\_inra.fr
 
 Note that all raw data are available on SRA: 
 
-_For each species, we provide the pipeline used for mapping, sorting & excluding duplicates ("1-script\_BAN\_mapping\_bowtie2\*"._
+_For each species, we provide the pipeline used for mapping, sorting & excluding duplicates ("1-script\_BAN\_mapping\_bowtie2\*")._
 
 _After generating a synchronized pileup ("2-script\_samtools\_pileup\_4especes\_201216.sh" & "3-script\_mpileup2sync\_java\_BAN\_4species.sh"), we generated a RC file using popoolation2 (4-script\_FreqSNP\_4especes\*) to filter SNPs and generate allele counts at each SNPs using a home-made script ("5-script\_filterSNPs\_generate\_allele\_count.sh")._
 
@@ -54,6 +54,20 @@ mscalc < myfifo
 - Generate posteriors (see /ABC/ABC\_scripts/script\_R\_generateposterior\_SC\_020817.R)
  
 ## 3 FST (./Fst\_10kb\_Sliding\_windows/)
-
+ The script used to compute Fst under Popoolation2 is available (./Fst\_10kb\_Sliding\_windows/script\_Popoolation\_Fst\_slidingwindows10kb\_4species.sh).
 
 ## 4 Null Envelopes (./Null\_Envelopes/)
+To be performed backward simulations require posteriors (95% confidence intervals of parameters), a bpfile & spinput.txt (containing information for a single SNP and number of haplotypes per pair). To perform this analysis, we used a dedicated version of priorgen "priorgen\_posterior2prior\_160217.py").
+Then backward simulations were performed (500,000 simulated SNPs x 10 times) to compute summary statistics (He, Gst) using the R script "script.fst.he.neutr2.R".
+ ```bash
+for i in {1..500000}; do
+priorgen_posterior2prior_160217.py bpfile=bpfile n1=$nsp1a n1=$nsp1b n2=$nsp2a n2=$nsp2b nA=$nanc1 nA=$nanc2 tau=$tau1 tau=$tau2 RatioTsmallTsplit=$ratio1 RatioTsmallTsplit=$ratio2 M1=$M1a M1=$M1b M2=$M2a M2=$M2b shape1=$shape1a shape1=$shape1b shape2=$shape2a shape2=$shape2b model=SC nreps=1 Nvariation=hetero Mvariation=homo symMig=asym parameters=priorfile | msnsam tbs 1 -s 1 -I 2 tbs tbs 0 -m 1 2 tbs -m 2 1 tbs -n 1 tbs -n 2 tbs -eM tbs 0 -ej tbs 2 1 -eN tbs tbs > tmp.ms
+tail -1 priorfile >> priorfile_simuls.txt
+tail -$ntot tmp.ms > tmp.ms.2
+Rscript script.fst.he.neutr2.R tmp.ms.2 $indsp1 $indsp2
+done
+```
+Then we used a R script to generate neutral quantiles as a function of heterozygosity ("script\_skyline\_dfdistlike\_he\_fst\_Poolseq.R).
+
+## 5 Genome scans (./Genome\_Scans/)
+Based on the previous null envelopes, we then used the script "1-script\_detect\_outliers\_he\_fst.sh" to detect outliers and the script "2-script\_OutlierDensity\_slidingwindows.sh". The last script requires some additional files concerning the length of scaffolds (see ./Genome\_Scans/companion\_genomic\_files/), including the status (outlier/neutral) of the first 200,000 SNPs as indicated in "/Genome\_Scans/companion\_genomic\_files/README.txt").
