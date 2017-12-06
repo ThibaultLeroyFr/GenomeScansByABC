@@ -17,7 +17,7 @@ For any questions, please contact : thibault.leroy\_AT\_inra.fr
 >priorgen\_260415.py, prior generator for different scenarios (IM or SC)\npriorgen\_recenttimes\_260415.py, prior generator for recent demographic events (recent SC in Leroy et al. submitted)
 
 To have more details: 
-priorgen\_260415.py -h \n
+priorgen\_260415.py -h <br>
 priorgen\_recenttimes\_260415.py -h
   
  
@@ -32,7 +32,7 @@ We also provide the procedure we used to generate datasets for ABC (see ABC/data
 ### 1C/ EXAMPLE: Multilocus coalescent simulations (all following examples are shown for the Q.robur-Q.petraea pair):
  - Introduction
 
->2,000 multilocus simulations assuming an IM scenario between Q.robur & Q.petraea [i.e. number of SNPs (=44798) x number of simulations (=2,000) = 8,9596,000] \n replicated 500 times to obtain 1 million simulations in Leroy et al. submitted (500 CPUs)
+>2,000 multilocus simulations assuming an IM scenario between Q.robur & Q.petraea [i.e. number of SNPs (=44798) x number of simulations (=2,000) = 8,9596,000] <br> replicated 500 times to obtain 1 million simulations in Leroy et al. submitted (500 CPUs)
 
  - Bash script (note that here all programs are assumed to be in your bin directory):
  ```bash
