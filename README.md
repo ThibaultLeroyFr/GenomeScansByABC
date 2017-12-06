@@ -8,7 +8,7 @@ Note that all raw data are available on SRA:
 
 _For each species, we provide the pipeline used for mapping, sorting & excluding duplicates ("1-script\_BAN\_mapping\_bowtie2\*")._
 
-_After generating a synchronized pileup ("2-script\_samtools\_pileup\_4especes\_201216.sh" & "3-script\_mpileup2sync\_java\_BAN\_4species.sh"), we generated a RC file using popoolation2 (4-script\_FreqSNP\_4especes\*) to filter SNPs and generate allele counts at each SNPs using a home-made script ("5-script\_filterSNPs\_generate\_allele\_count.sh")._
+_After generating a synchronized pileup ("2-script\_samtools\_pileup\_4especes\_201216.sh" & "3-script\_mpileup2sync\_java\_BAN\_4species.sh"), we generated a RC file using popoolation2 ("4-script\_FreqSNP\_4especes\*") to filter SNPs and generate allele counts at each SNPs using a home-made script ("5-script\_filterSNPs\_generate\_allele\_count.sh")._
 
 ### 2 ABC
 ### 2A/PROGRAMS: (./ABC/ABC\_scripts/)
@@ -42,7 +42,7 @@ We also provide the procedure we used to generate datasets for ABC (see ABC/data
 Note that all following examples are shown for the Q.robur-Q.petraea pair (but the same strategy was used for all pairs).
  - Introduction
 
->2,000 multilocus simulations assuming an IM scenario between Q.robur & Q.petraea [i.e. number of SNPs (=44798) x number of simulations (=2,000) = 8,9596,000] <br> Replicated 500 times to obtain 1 million simulations in Leroy et al. submitted (500 CPUs)
+>2,000 multilocus simulations assuming an IM scenario between Q.robur & Q.petraea [i.e. number of SNPs (=44798) x number of simulations (=2,000) = 89,596,000] <br> Replicated 500 times to obtain 1 million simulations in Leroy et al. submitted (500 CPUs)
 
  - Bash script (note that here all programs are assumed to be in your bin directory):
  ```bash
@@ -67,7 +67,7 @@ for i in {1..500000}; do
   Rscript script.fst.he.neutr2.R tmp.ms.2 $indsp1 $indsp2
 done
 ```
-Then we used a R script to generate neutral quantiles as a function of heterozygosity ("script\_skyline\_dfdistlike\_he\_fst\_Poolseq.R).
+Then we used a R script to generate neutral quantiles of Gst as a function of heterozygosity ("script\_skyline\_dfdistlike\_he\_fst\_Poolseq.R).
 
 ### 5 Genome scans (./Genome\_Scans/)
 Based on the previous null envelopes, we then used the script "1-script\_detect\_outliers\_he\_fst.sh" to detect outliers and the script "2-script\_OutlierDensity\_slidingwindows.sh" to perform the sliding window approach. The last script requires some additional files concerning the length of scaffolds that was made available for the oak genome (see ./Genome\_Scans/companion\_genomic\_files/). For testing this script, we also include the status (outlier/neutral) of the first 200,000 SNPs as indicated in "/Genome\_Scans/companion\_genomic\_files/README.txt").
