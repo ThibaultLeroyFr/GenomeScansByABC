@@ -22,7 +22,7 @@ _After generating a synchronized pileup ("2-script\_samtools\_pileup\_4especes\_
  >./clms
  
 - Generator of priors
-priorgen\_260415.py, prior generator for different scenarios (IM or SC)\npriorgen\_recenttimes\_260415.py, prior generator for recent demographic events (recent SC in Leroy et al. submitted)
+_priorgen\_260415.py, prior generator for different scenarios (IM or SC)\npriorgen\_recenttimes\_260415.py, prior generator for recent demographic events (recent SC in Leroy et al. submitted)_
 
 To have more details: 
 >priorgen\_260415.py -h <br>
