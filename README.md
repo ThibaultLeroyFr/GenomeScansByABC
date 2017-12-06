@@ -31,19 +31,15 @@ The target file contains the 19 summary statistics calculated on each real datas
 ### 1C/ EXAMPLE: Multilocus coalescent simulations (all following examples are shown for the Q.robur-Q.petraea pair):
  - Introduction
 
->2000 multilocus simulations assuming an IM scenario between Q.robur & QQ.petraea [i.e. number of SNPs (=44798) x number of simulations (=2000) = 1,360,000]
-
->Number of SNPs = 2nd line of the "spinput.txt" file
+>2,000 multilocus simulations assuming an IM scenario between Q.robur & Q.petraea [i.e. number of SNPs (=44798) x number of simulations (=2,000) = 8,9596,000]
+replicated 500 times to obtain 1 million simulations in Leroy et al. submitted (500 CPUs)
 
  - Bash script (note that here all programs are assumed to be in your bin directory):
-
-> mknod myfifo p
  ```bash
-s = "Bash syntax highlighting"
-priorgen4_recentbottle.py bpfile=bpfile n1=0 n1=100 n2=0 n2=100 nA=0 nA=100 tau=0 tau=100 bottleneck=N taubottle=0 taubottle=10 alpha1=1 alpha1=1 alpha2=1 alpha2=1 M1=0 M1=100 M2=0 M2=100 shape1=0 shape1=100 shape2=0 shape2=500 model=AM nreps=20000 Nvariation=hetero Mvariation=hetero symMig=asym parameters=priorfile | msnsam tbs 1360000 -s 1 -I 2 tbs tbs 0 -m 1 2 tbs -m 2 1 tbs -n 1 tbs -n 2 tbs -ema tbs 2 0 tbs tbs 0 -ej tbs 2 1 -eN tbs tbs >myfifo &
- 
+mknod myfifo p
+priorgen_260415.py bpfile=bpfile n1=0 n1=100 n2=0 n2=100 nA=0 nA=100 tau=0 tau=100 M1=0 M1=100 M2=0 M2=100 shape1=0 shape1=100 shape2=0 shape2=500 model=IM nreps=44798 Nvariation=hetero Mvariation=hetero symMig=asym parameters=priorfile | msnsam tbs 89596000 -s 1 -I 2 tbs tbs 0 -m 1 2 tbs -m 2 1 tbs -n 1 tbs -n 2 tbs -ej tbs 2 1 -eN tbs tbs >myfifo &
 mscalc < myfifo
 ```
-
+- Model Selection (see ABC/ABC\_scripts/R\_ModelChoice\_2models-IMvsSC\_heteroNe\_heteroM\_Pools\_rob-pet_060217.Rscripts for an example)
 > 
  
