@@ -38,8 +38,12 @@ The target file contains the 19 summary statistics calculated on each real datas
  - Bash script (note that here all programs are assumed to be in your bin directory):
 
 > mknod myfifo p
+ ```bash
+s = "Bash syntax highlighting"
+priorgen4_recentbottle.py bpfile=bpfile n1=0 n1=100 n2=0 n2=100 nA=0 nA=100 tau=0 tau=100 bottleneck=N taubottle=0 taubottle=10 alpha1=1 alpha1=1 alpha2=1 alpha2=1 M1=0 M1=100 M2=0 M2=100 shape1=0 shape1=100 shape2=0 shape2=500 model=AM nreps=20000 Nvariation=hetero Mvariation=hetero symMig=asym parameters=priorfile | msnsam tbs 1360000 -s 1 -I 2 tbs tbs 0 -m 1 2 tbs -m 2 1 tbs -n 1 tbs -n 2 tbs -ema tbs 2 0 tbs tbs 0 -ej tbs 2 1 -eN tbs tbs >myfifo &
  
-> priorgen4_recentbottle.py bpfile=bpfile n1=0 n1=100 n2=0 n2=100 nA=0 nA=100 tau=0 tau=100 bottleneck=N taubottle=0 taubottle=10 alpha1=1 alpha1=1 alpha2=1 alpha2=1 M1=0 M1=100 M2=0 M2=100 shape1=0 shape1=100 shape2=0 shape2=500 model=AM nreps=20000 Nvariation=hetero Mvariation=hetero symMig=asym parameters=priorfile | msnsam tbs 1360000 -s 1 -I 2 tbs tbs 0 -m 1 2 tbs -m 2 1 tbs -n 1 tbs -n 2 tbs -ema tbs 2 0 tbs tbs 0 -ej tbs 2 1 -eN tbs tbs >myfifo &
- 
-> mscalc < myfifo
+mscalc < myfifo
+```
+
+> 
  
