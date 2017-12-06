@@ -4,7 +4,7 @@
 echo "$(tput setaf 4)
 ############Pool-Seq Allele Count v0.1 Thibault Leroy - thibault.leroy@pierroton.inra.fr ############
 $(tput setaf 1)This script extracts allele counts per locus and per population, excluded sites with a MAF lower than a cutoff
-beta-testing (bugs are likely!)  $(tput sgr 0)" 
+beta-testing  $(tput sgr 0)" 
 
 ### CHANGE TO YOUR PATH###
 pwd_inputfile=$(echo "/home/tleroy/work2/projet_BAN/4species/BAN_4especes_PipelineBowtie2.pileup.sync.freqSNP_rc_00")
