@@ -28,12 +28,13 @@ All oak datasets used for our ABC analyses are available. For each pair of clust
   
 The target file contains the 19 summary statistics calculated on each real dataset.
 
-### EXAMPLE: Multilocus coalescent simulations:
+### 1C/ EXAMPLE: Multilocus coalescent simulations (all following examples are shown for the Q.robur-Q.petraea pair):
  - Introduction
 
-20000 multilocus simulations assuming an AM scenario between cluster1 & cluster2 [i.e. number of SNPs (=68) x number of simulations (=20000) = 1,360,000]
+>2000 multilocus simulations assuming an IM scenario between Q.robur & QQ.petraea [i.e. number of SNPs (=44798) x number of simulations (=2000) = 1,360,000]
 
-Number of SNPs = 2nd line of the spinput.txt file
+>Number of SNPs = 2nd line of the "spinput.txt" file
+
  - Bash script (note that here all programs are assumed to be in your bin directory):
 
 > mknod myfifo p
