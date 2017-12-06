@@ -5,13 +5,13 @@ setwd("/home/tleroy/work2/ABC/Pool/rob-pet/4species/neutral_envelope/")
 dfSCh <- read.table("compil_neutral_stats_RecentSC_heteroNe.txt",sep="\t",skip=1)
 nameoutfile="rob-pet_quantiles_He-Fst_compil_neutral_stats_RecentSC_heteroNe.txt"
 
-#### compute quantile per class SC scenario hetero PoolSeq
+#### compute quantile per class SC scenario heteroNe PoolSeq
 
 x=0 # initiate x 
 y=0 # initiate y
 z = NULL
-while(x < 0.5) { # loop while incrémentée de 0.05, si pas de 0.05, à réduire avec la quantité de données pour plus de précision
-  x <- x+0.02 # borne max
+while(x < 0.5) { 
+  x <- x+0.02
   print(x)
   print(y)
   v=NULL
@@ -22,7 +22,6 @@ while(x < 0.5) { # loop while incrémentée de 0.05, si pas de 0.05, à réduire
       }
     } 
   }
-  # imprimer les résultats des quantiles pour chaque milieu de classe (x-0.025, si l'incrémentation est de 0.05)
   z = rbind(z, c(x,nrow(v),quantile(v[,8], probs=c(0.005,0.025,0.25,0.5,0.75,0.975,0.99,0.995,0.999,0.9999,1,1),na.rm=T)))
   print(z)
   y <- y+0.02 # borne min
