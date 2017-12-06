@@ -54,7 +54,7 @@ mscalc < myfifo
 - Generate posteriors (see /ABC/ABC\_scripts/script\_R\_generateposterior\_SC\_020817.R)
  
 ### 3 FST (./Fst\_10kb\_Sliding\_windows/)
- The script used to compute Fst under Popoolation2 is available (./Fst\_10kb\_Sliding\_windows/script\_Popoolation\_Fst\_slidingwindows10kb\_4species.sh).
+Script used to compute Fst under Popoolation2 (./Fst\_10kb\_Sliding\_windows/script\_Popoolation\_Fst\_slidingwindows10kb\_4species.sh).
 
 ### 4 Null Envelopes (./Null\_Envelopes/)
 To be performed backward simulations require posteriors (95% confidence intervals of parameters), a bpfile & spinput.txt (containing information for a single SNP and number of haplotypes per pair). To perform this analysis, we used a dedicated version of priorgen "priorgen\_posterior2prior\_160217.py").
