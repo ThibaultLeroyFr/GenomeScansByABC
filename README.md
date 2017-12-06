@@ -17,7 +17,7 @@ For any questions, please contact : thibault.leroy\_AT\_inra.fr
 >priorgen\_260415.py, prior generator for different scenarios (IM or SC)\npriorgen\_recenttimes\_260415.py, prior generator for recent demographic events (recent SC in Leroy et al. submitted)
 
 To have more details: 
-priorgen\_260415.py -h <br>
+>priorgen\_260415.py -h <br>
 priorgen\_recenttimes\_260415.py -h
   
  
