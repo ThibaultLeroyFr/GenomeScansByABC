@@ -11,7 +11,7 @@ _For each species, we provide the pipeline used for mapping, sorting & excluding
 _After generating a synchronized pileup ("2-script\_samtools\_pileup\_4especes\_201216.sh" & "3-script\_mpileup2sync\_java\_BAN\_4species.sh"), we generated a RC file using popoolation2 (4-script\_FreqSNP\_4especes\*) to filter SNPs and generate allele counts at each SNPs using a home-made script ("5-script\_filterSNPs\_generate\_allele\_count.sh")._
 
 ### 2 ABC
-### 2A/PROGRAMS: (./ABC/ABC_SCRIPTS/)
+### 2A/PROGRAMS: (./ABC/ABC\_scripts/)
  
 - To compile mscalc, the calculator of summary statistics (Ross-Ibarra et al. 2008; 2009; Roux et al. 2011):
  
