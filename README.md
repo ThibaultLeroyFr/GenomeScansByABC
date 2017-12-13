@@ -4,8 +4,6 @@ _For any questions, please contact : thibault.leroy\_AT\_inra.fr_
 
 ### 1 SNP Calling & Filtering (./SNP\_calling\_filtering/)
 
-Note that all raw data are available on SRA: 
-
 _For each species, we provide the pipeline used for mapping, sorting & excluding duplicates ("1-script\_BAN\_mapping\_bowtie2\*")._
 
 _After generating a synchronized pileup ("2-script\_samtools\_pileup\_4especes\_201216.sh" & "3-script\_mpileup2sync\_java\_BAN\_4species.sh"), we generated a RC file using popoolation2 ("4-script\_FreqSNP\_4especes\*") to filter SNPs and generate allele counts at each SNPs using a home-made script ("5-script\_filterSNPs\_generate\_allele\_count.sh")._
