@@ -1,10 +1,10 @@
 # GenomeScansByABC
-_This GitHub repository contains all datasets, scripts and programs used to perform demographically-explicit genome scans following Leroy et al. submitted._
+_This GitHub repository contains all datasets, scripts and programs used to perform demographically-explicit genome scans following Leroy et al. submitted. All supporting Information is already available (see ./manuscript+SI/), but the manuscript will not be available until mid-January 2018._
 _For any questions, please contact : thibault.leroy\_AT\_inra.fr_
 
 ### 1 SNP Calling & Filtering (./SNP\_calling\_filtering/)
 
-_For each species, we provide the pipeline used for mapping, sorting & excluding duplicates ("1-script\_BAN\_mapping\_bowtie2\*")._
+_For each species, the pipeline used to generate bam files is available (mapping, sorting & excluding duplicates): "1-script\_BAN\_mapping\_bowtie2\*"._
 
 _After generating a synchronized pileup ("2-script\_samtools\_pileup\_4especes\_201216.sh" & "3-script\_mpileup2sync\_java\_BAN\_4species.sh"), we generated a RC file using popoolation2 ("4-script\_FreqSNP\_4especes\*") to filter SNPs and generate allele counts at each SNPs using a home-made script ("5-script\_filterSNPs\_generate\_allele\_count.sh")._
 
@@ -33,11 +33,11 @@ All oak datasets used for our ABC analyses are available. For each pair of speci
   
 The target file contains the 19 summary statistics calculated on each real dataset but only last 17 ones were used for selecting models and drawing posteriors in Leroy et al. 2017 (2 first ones are poorly informative for comparing IM & SC).
 
-We also provide the procedure we used to generate datasets for ABC (see ABC/datasets\_50kSBOS/procedure\_to\_generate\_datasets/all\_freq\_generate\_counts\_rob-pet\_40X-26X.sh), this includes the original file containing allele counts at 50k SNP positions.
+We also provide the procedure we followed to generate datasets for ABC (see ABC/datasets\_50kSBOS/procedure\_to\_generate\_datasets/all\_freq\_generate\_counts\_rob-pet\_40X-26X.sh), including the original file containing allele counts at 50k SNP positions.
 
 ### 2C/ EXAMPLE: Multilocus coalescent simulations & R analyses:
 
-Note that all following examples are shown for the Q.robur-Q.petraea pair (but the same strategy was used for all pairs).
+Note that all following examples are shown for the _Q.robur-Q.petraea_ pair (but the same strategy was used for all pairs).
  - Introduction
 
 >2,000 multilocus simulations assuming an IM scenario between Q.robur & Q.petraea [i.e. number of SNPs (=44798) x number of simulations (=2,000) = 89,596,000] <br> Replicated 500 times to obtain 1 million simulations in Leroy et al. submitted (500 CPUs)
@@ -49,13 +49,16 @@ priorgen_260415.py bpfile=bpfile n1=0 n1=100 n2=0 n2=100 nA=0 nA=100 tau=0 tau=1
 mscalc < myfifo
 ```
 - Model Selection (see ./ABC/ABC\_scripts/R\_ModelChoice\_2models-IMvsSC\_heteroNe\_heteroM\_Pools\_rob-pet\_060217.Rscripts for an example)
-- Generate posteriors (see /ABC/ABC\_scripts/script\_R\_generateposterior\_SC\_020817.R)
+- Parameter estimates (see /ABC/ABC\_scripts/script\_R\_generateposterior\_SC\_020817.R)
  
 ### 3 FST (./Fst\_10kb\_Sliding\_windows/)
-Script used to compute Fst under Popoolation2 (./Fst\_10kb\_Sliding\_windows/script\_Popoolation\_Fst\_slidingwindows10kb\_4species.sh).
+
+*Detailed graphical view of the Fig. 3 (main text), see ./Fst\_10kb\_Sliding\_windows/6pairs\_Fst10kb\_Chr\_par\_Chr\_141217.pdf*
+
+The code used to compute Fst under Popoolation2 is available (./Fst\_10kb\_Sliding\_windows/script\_Popoolation\_Fst\_slidingwindows10kb\_4species.sh).
 
 ### 4 Null Envelopes (./Null\_Envelopes/)
-To be performed backward simulations require posteriors (95% confidence intervals of parameters), a bpfile & spinput.txt (containing information for a single SNP and number of haplotypes per pair). To perform this analysis, we used a dedicated version of priorgen "priorgen\_posterior2prior\_160217.py").
+To be performed, backward simulations require a file with the parameter estimates under the best fitting model (95% confidence intervals of parameters), a bpfile & spinput.txt (containing information for a single SNP and number of haplotypes per pair), as shown. To perform this analysis, we used a dedicated version of priorgen "priorgen\_posterior2prior\_160217.py").
 Then backward simulations were performed (500,000 simulated SNPs x 10 times) to compute summary statistics (He, Gst) using the R script "script.fst.he.neutr2.R".
  ```bash
 for i in {1..500000}; do
@@ -68,4 +71,7 @@ done
 Then we used a R script to generate neutral quantiles of Gst as a function of heterozygosity ("script\_skyline\_dfdistlike\_he\_fst\_Poolseq.R).
 
 ### 5 Genome scans (./Genome\_Scans/)
+
+*Detailed graphical view of the Fig. 5 (main text), see  ./Genome\_Scans/Results\_SlidingWindows10kb/6pairs\_Fst10kb\_Chr\_par\_Chr\_141217.pdf*
+
 Based on the previous null envelopes, we then used the script "1-script\_detect\_outliers\_he\_fst.sh" to detect outliers and the script "2-script\_OutlierDensity\_slidingwindows.sh" to perform the sliding window approach. The last script requires some additional files concerning the length of scaffolds that was made available for the oak genome (see ./Genome\_Scans/companion\_genomic\_files/). For testing this script, we also include the status (outlier/neutral) of the first 200,000 SNPs as indicated in "/Genome\_Scans/companion\_genomic\_files/README.txt").
