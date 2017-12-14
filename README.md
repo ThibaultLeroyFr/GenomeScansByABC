@@ -1,5 +1,5 @@
 # GenomeScansByABC
-_This GitHub repository contains all datasets, scripts and programs used to perform demographically-explicit genome scans following Leroy et al. submitted. MS + Supporting Information: see ./manuscript+SI/ (SI available, manuscript soon)_
+_This GitHub repository contains all datasets, scripts and programs used to perform demographically-explicit genome scans following Leroy et al. submitted. All supporting Information is already available (see ./manuscript+SI/), but the manuscript will not be available until mid-January 2018._
 _For any questions, please contact : thibault.leroy\_AT\_inra.fr_
 
 ### 1 SNP Calling & Filtering (./SNP\_calling\_filtering/)
