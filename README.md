@@ -53,9 +53,10 @@ mscalc < myfifo
  
 ### 3 FST (./Fst\_10kb\_Sliding\_windows/)
 
-Detailed graphical view of the Fig. 3 (main text), see ./Fst\_10kb\_Sliding\_windows/6pairs\_Fst10kb\_Chr\_par\_Chr\_141217.pdf
+*Detailed graphical view of the Fig. 3 (main text), see ./Fst\_10kb\_Sliding\_windows/6pairs\_Fst10kb\_Chr\_par\_Chr\_141217.pdf*
 
-Script used to compute Fst under Popoolation2 (./Fst\_10kb\_Sliding\_windows/script\_Popoolation\_Fst\_slidingwindows10kb\_4species.sh).
+Script:
+Code used to compute Fst under Popoolation2 (./Fst\_10kb\_Sliding\_windows/script\_Popoolation\_Fst\_slidingwindows10kb\_4species.sh).
 
 ### 4 Null Envelopes (./Null\_Envelopes/)
 To be performed backward simulations require posteriors (95% confidence intervals of parameters), a bpfile & spinput.txt (containing information for a single SNP and number of haplotypes per pair). To perform this analysis, we used a dedicated version of priorgen "priorgen\_posterior2prior\_160217.py").
@@ -72,6 +73,7 @@ Then we used a R script to generate neutral quantiles of Gst as a function of he
 
 ### 5 Genome scans (./Genome\_Scans/)
 
-Detailed graphical view of the Fig. 5 (main text), see  ./Genome\_Scans/Results\_SlidingWindows10kb/6pairs\_Fst10kb\_Chr\_par\_Chr\_141217.pdf
+*Detailed graphical view of the Fig. 5 (main text), see  ./Genome\_Scans/Results\_SlidingWindows10kb/6pairs\_Fst10kb\_Chr\_par\_Chr\_141217.pdf*
 
+Script:
 Based on the previous null envelopes, we then used the script "1-script\_detect\_outliers\_he\_fst.sh" to detect outliers and the script "2-script\_OutlierDensity\_slidingwindows.sh" to perform the sliding window approach. The last script requires some additional files concerning the length of scaffolds that was made available for the oak genome (see ./Genome\_Scans/companion\_genomic\_files/). For testing this script, we also include the status (outlier/neutral) of the first 200,000 SNPs as indicated in "/Genome\_Scans/companion\_genomic\_files/README.txt").
